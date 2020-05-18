@@ -11,6 +11,8 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation(platform("software.amazon.awssdk:bom:2.13.18"))
+    implementation("software.amazon.awssdk:dynamodb")
 }
 
 tasks {
