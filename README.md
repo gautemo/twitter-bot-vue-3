@@ -13,3 +13,6 @@ aws dynamodb create-table --table-name twitter-bot-vue-3 --attribute-definitions
 aws dynamodb put-item --table-name twitter-bot-vue-3 --item "{\"Project\": {\"S\": \"Vue 3\"}, \"Changelog\": {\"S\": \"
 https://raw.githubusercontent.com/vuejs/vue-next/master/CHANGELOG.md\"}, \"LastRecordedChange\": {\"S\": \"...\"}}"
 ```
+
+## Twitter
+Apply for [developer account](https://developer.twitter.com/en/apply/user.html) and select "Making a bot"

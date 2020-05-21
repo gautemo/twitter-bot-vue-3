@@ -32,11 +32,6 @@ fun updateProjectLastRecordedChange(project: Project){
         it.key(key)
         it.attributeUpdates(updates)
     }
-
 }
 
 fun createAttributeValueString(value: String): AttributeValue = AttributeValue.builder().s(value).build()
-
-fun main(){
-    println(readProjects())
-}
