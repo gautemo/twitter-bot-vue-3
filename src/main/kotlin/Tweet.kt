@@ -4,7 +4,7 @@ import twitter4j.conf.ConfigurationBuilder
 fun tweet(project: Project){
     val regex = """\[.+]""".toRegex()
     val version = regex.find(project.lastRecordedChangelog)?.value?.trim('[', ']')
-    val message = "${project.name}, $version is out! (${project.changelog})"
+    val message = "${project.name}, ${if(version.isNullOrEmpty()) version else "new version"} is out! (${project.changelog}) #VueJS"
     sendTweet(message)
 }
 

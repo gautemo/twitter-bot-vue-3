@@ -1,6 +1,25 @@
 # twitter-bot-vue-3
 Twitter bot announcing new versions of Vue 3 related repositories
 
+## Schedule Event
+[Create rule](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
+```
+aws events put-rule --schedule-expression "rate(5 minutes)" --name FiveMinRule
+```
+[Add permission]()
+```
+aws lambda add-permission --function-name twitter-bot-vue-3 --action lambda:InvokeFunction --principal events.amazonaws.com --s
+ource-arn <rule-arn-from-above> --statement-id my-scheduled-event
+```
+[Get Lambda function arn]()
+```
+aws lambda list-functions
+```
+[Put target]()
+```
+aws events put-targets --rule FiveMinRule --targets "Id"="1","Arn"="<function-arn>"
+```
+
 ## DynamoDB AWS
 [Create table](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/create-table.html):
 ```
