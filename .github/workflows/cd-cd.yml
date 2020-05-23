@@ -13,12 +13,11 @@ jobs:
 
     - name: Gradle setup
       run: |
-        chmod +x ./gradlew
         gradle wrapper
     - name: Build & Deploy
       run: |
         aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws configure set default.region eu-west-1
-        ./gradlew build --stacktrace
+        ./gradlew build
         aws lambda update-function-code --function-name twitter-bot-vue-3 --zip-file fileb://build/libs/twitter-bot-vue-3.jar
