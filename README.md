@@ -14,5 +14,10 @@ aws dynamodb put-item --table-name twitter-bot-vue-3 --item "{\"Project\": {\"S\
 https://raw.githubusercontent.com/vuejs/vue-next/master/CHANGELOG.md\"}, \"LastRecordedChange\": {\"S\": \"...\"}}"
 ```
 
+## AWS Secrets Manager
+```
+aws secretsmanager create-secret --name twitter-bot-vue-3/auth --description "Twitter app keys and tokens" --secret-string "{\"consumer-key\":\"API key\",\"consumer-secret\":\"API secret key\",\"access-token\":\"Access token\",\"access-token-secret\":\"Access token secret\"}"
+```
+
 ## Twitter
 Apply for [developer account](https://developer.twitter.com/en/apply/user.html) and select "Making a bot"

@@ -33,6 +33,11 @@ tasks {
 
     register<Exec>("deploy"){
         dependsOn(build)
-        commandLine("cmd", "/c", "aws lambda update-function-code --function-name twitter-bot-vue-3 --zip-file fileb://build/libs/twitter-bot-vue-3.jar")
+        val updateScript = "aws lambda update-function-code --function-name twitter-bot-vue-3 --zip-file fileb://build/libs/twitter-bot-vue-3.jar"
+        if(org.apache.tools.ant.taskdefs.condition.Os.isFamily(org.apache.tools.ant.taskdefs.condition.Os.FAMILY_WINDOWS)){
+            commandLine("cmd", "/c", updateScript)
+        }else{
+            commandLine(updateScript)
+        }
     }
 }
