@@ -14,6 +14,7 @@ class Main {
             }
         }catch (e: Exception){
             println("Exception:  ${e.message}")
+            throw e
         }
     }
 }
