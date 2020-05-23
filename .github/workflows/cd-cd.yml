@@ -11,6 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Gradle setup
+      run: gradle wrapper
     - name: Build & Deploy
       run: |
         aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
