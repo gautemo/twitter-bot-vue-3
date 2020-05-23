@@ -15,12 +15,13 @@ jobs:
       uses: actions/setup-java@v1.3.0
       with:
         java-version: 1.8
-    - name: Make Gradle executable
-      run: chmod +x ./gradlew
+    - name: Gradle setup
+      run: |
+        chmod +x ./gradlew
+        gradle wrapper
     - name: Build & Deploy
       run: |
         aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws configure set default.region eu-west-1
-        gradle wrapper
-        ./gradlew deploy
+        ./gradlew deploy --stacktrace
