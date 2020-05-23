@@ -25,10 +25,4 @@ jobs:
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws configure set default.region eu-west-1
         ./gradlew build --stacktrace
-        ls
-        cd build
-        ls
-        cd libs
-        ls
-        cd ...
         ./gradlew deploy --stacktrace
