@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation(platform("software.amazon.awssdk:bom:2.13.18"))
+    implementation(platform("software.amazon.awssdk:bom:2.13.23"))
     implementation("software.amazon.awssdk:dynamodb")
     implementation("software.amazon.awssdk:secretsmanager")
     implementation("org.twitter4j", "twitter4j-core", "4.0.7")
