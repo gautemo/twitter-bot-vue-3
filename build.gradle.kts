@@ -29,6 +29,9 @@ tasks {
 
     jar {
         archiveFileName.set("twitter-bot-vue-3.jar")
+        from(configurations
+            .runtimeClasspath.get().files.filter { it.exists() }
+            .map { if (it.isDirectory) it else zipTree(it) })
     }
 
     register<Exec>("deploy"){
